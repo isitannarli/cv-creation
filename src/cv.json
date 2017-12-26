@@ -1,0 +1,59 @@
+{
+  "name": "Adınız Soyadınız",
+  "picture": "",
+  "phone": "0543215678",
+  "email": "ornek@siteadresi.com",
+  "site": "www.siteadresi.com",
+  "job_title": "İş Unvanınız",
+  "summary": "Kendiniz hakkında bir şeyler yazınız..",
+  "education": [
+    {
+      "school_name": "Okul/Üniversite Adı",
+      "start_date": {
+        "mounly": "Ocak",
+        "year": "2007",
+        "end": false
+      },
+      "end_date": {
+        "mounly": "Ocak",
+        "year": "2009",
+        "end": true
+      }
+    },
+  ],
+  "word_experience": [
+    {
+      "title": "İş Unvanınız",
+      "company_name": "Şirket Adı",
+      "start_date": {
+        "mounly": "Ocak",
+        "year": "2007",
+        "end": false
+      },
+      "end_date": {
+        "mounly": "Ocak",
+        "year": "2009",
+        "end": false
+      },
+      "description": "Şirketteki deneyimlerinizi yazınız"
+    },
+    {
+      "title": "İş Unvanınız",
+      "company_name": "Şirket Adı",
+      "start_date": {
+        "mounly": "Ocak",
+        "year": "2007"
+      },
+      "end_date": {
+        "mounly": "Ocak",
+        "year": "2009"
+      },
+      "description": "Şirketteki deneyimlerinizi yazınız"
+    }
+  ],
+  "skills": [
+    "Yeteneğiniz",
+    "Yeteneğiniz",
+    "Yeteneğiniz"
+  ]
+}
