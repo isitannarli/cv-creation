@@ -353,3 +353,58 @@ section:last-child {
 	-moz-animation-delay: 0, 2.5s;
 	animation-delay: 0, 2.5s;
 }
+
+.rowItem,
+.rowItem:hover,
+.rowItem:focus {
+  transition: all 500ms ease;
+}
+
+.rowItem:hover .newRow,
+.rowItem:focus .newRow {
+  display: table;
+  transition: all 500ms ease;
+}
+
+.newRow {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: none;
+  cursor: pointer;
+  height: 30px;
+  transition: all 500ms ease;
+}
+
+.newRow:hover,
+.newRow:focus {
+  transition: all 500ms ease;
+}
+
+.newRow {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.newRow .line {
+  width: calc(100% - 30px);
+  height:  4px;
+  background-color: yellow;
+  box-shadow: 0 0 10px rgba(0,0,0,.4);
+  float:  left;
+}
+
+.newRow .plus {
+  background-color:  yellow;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  float: left;
+  box-shadow: 0 0 10px rgba(0,0,0,.4);
+  margin-top: -12.5px;
+  line-height: 30px;
+  font-weight:  800;
+  text-align: center;
+  color: #000;
+}

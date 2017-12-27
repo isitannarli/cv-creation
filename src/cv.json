@@ -8,47 +8,48 @@
   "summary": "Kendiniz hakkında bir şeyler yazınız..",
   "education": [
     {
-      "school_name": "Okul/Üniversite Adı",
+      "title": "Fakulte/Bölüm",
+      "name": "Okul/Üniversite Adı",
       "start_date": {
-        "mounly": "Ocak",
-        "year": "2007",
-        "end": false
+        "month": "Eylül",
+        "year": "2007"
       },
       "end_date": {
-        "mounly": "Ocak",
-        "year": "2009",
-        "end": true
-      }
-    },
+        "month": "Eylül",
+        "year": "2011"
+      },
+      "continues": false,
+      "description": "Detay Bilgisini Buraya Yazınız.."
+    }
   ],
   "word_experience": [
     {
       "title": "İş Unvanınız",
-      "company_name": "Şirket Adı",
+      "name": "Şirket Adı",
       "start_date": {
-        "mounly": "Ocak",
-        "year": "2007",
-        "end": false
-      },
-      "end_date": {
-        "mounly": "Ocak",
-        "year": "2009",
-        "end": false
-      },
-      "description": "Şirketteki deneyimlerinizi yazınız"
-    },
-    {
-      "title": "İş Unvanınız",
-      "company_name": "Şirket Adı",
-      "start_date": {
-        "mounly": "Ocak",
+        "month": "Ocak",
         "year": "2007"
       },
       "end_date": {
-        "mounly": "Ocak",
-        "year": "2009"
+        "month": "",
+        "year": ""
       },
-      "description": "Şirketteki deneyimlerinizi yazınız"
+      "continues": true,
+      "description": "Detay Bilgisini Buraya Yazınız.."
+    },
+    {
+      "title": "İş Unvanınız",
+      "name": "Şirket Adı",
+      "start_date": {
+        "month": "Ocak",
+        "year": "2007"
+      },
+      "end_date": {
+        "month": "",
+        "year": ""
+      },
+      "continues": true,
+      "description": "Detay Bilgisini Buraya Yazınız.."
     }
   ],
   "skills": [

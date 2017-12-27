@@ -1,25 +1,14 @@
 <template>
   <section>
     <div class="sectionTitle">
-      <h1>Education</h1>
+      <h1>{{ title }}</h1>
     </div>
-    <div class="sectionContent" v-if="type == 'article'">
-      <article>
-        <h2>College/University</h2>
-        <p class="subDetails">Qualification</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
-      </article>
+    <div class="sectionContent" v-if="type == 'row'">
+      <my-article v-for="(row, index) in datas" :info="row" :index="index"></my-article>
     </div>
     <div class="sectionContent" v-if="type == 'list'">
       <ul class="keySkills">
-        <li>A Key Skill</li>
-        <li>A Key Skill</li>
-        <li>A Key Skill</li>
-        <li>A Key Skill</li>
-        <li>A Key Skill</li>
-        <li>A Key Skill</li>
-        <li>A Key Skill</li>
-        <li>A Key Skill</li>
+        <li v-for="title in datas">{{ title }}</li>
       </ul>
     </div>
     <div class="clear"></div>
@@ -27,6 +16,9 @@
 </template>
 
 <script>
+
+  import myArticle from './article.vue';
+
   export default {
     name: 'section',
     data() {
@@ -34,11 +26,15 @@
 
       }
     },
-    props: ['data', 'type'],
+    props: ['datas', 'title', 'type'],
     methods: {
 
     },
-    components:
+    components: {
+      myArticle
+    },
+    created() {
+    }
   }
 </script>
 
