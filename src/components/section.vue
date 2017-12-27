@@ -4,7 +4,7 @@
       <h1>{{ title }}</h1>
     </div>
     <div class="sectionContent" v-if="type == 'row'">
-      <my-article v-for="(row, index) in datas" :info="row" :index="index"></my-article>
+      <my-article v-for="(row, index) in datas" :info="row" :parentKey="keyName" :index="index"></my-article>
     </div>
     <div class="sectionContent" v-if="type == 'list'">
       <ul class="keySkills">
@@ -26,7 +26,7 @@
 
       }
     },
-    props: ['datas', 'title', 'type'],
+    props: ['datas', 'title', 'type', 'keyName'],
     methods: {
 
     },

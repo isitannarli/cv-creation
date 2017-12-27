@@ -366,6 +366,15 @@ section:last-child {
   transition: all 500ms ease;
 }
 
+.rowItem article {
+  position: relative;
+}
+
+.rowItem article:hover .editable,
+.rowItem article:focus .editable{
+  display: block;
+}
+
 .newRow {
   width: 100%;
   margin-top: 10px;
@@ -407,4 +416,25 @@ section:last-child {
   font-weight:  800;
   text-align: center;
   color: #000;
+}
+
+.editable {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  background-color: rgba(0,0,0,.8);
+  display: none;
+}
+
+.editable span {
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  display: block;
+  line-height: 60px;
+  text-transform: uppercase;
 }
