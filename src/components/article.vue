@@ -36,7 +36,7 @@
         </span>
       </p>
       <p><textarea type="text" v-model="info.description" required></textarea></p>
-
+      <button @click="save(index)">Kaydet</button>
     </div>
   </div>
 </template>
@@ -47,9 +47,10 @@
     data() {
       return {
         editable: false,
+        backup: {},
         emptyData: {
-          title: "İş Unvanınız",
-          name: "Şirket Adı",
+          title: "Başlık",
+          name: "Ad",
           start_date: {
             month: "Ocak",
             year: "2007"
@@ -87,7 +88,10 @@
         sectionArray.splice(index + 1, 0, this.emptyData);
       },
       edit(index) {
-        this.editable = !this.editable;
+        this.editable = true;
+      },
+      save(index) {
+        this.editable = false;
       }
     }
   }
