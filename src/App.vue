@@ -1,44 +1,66 @@
 <template>
-  <div id="app" class="instaFade">
-    <div class="mainDetails">
-      <div id="headshot" class="quickFade">
-        <div class="imgEditable" @click="imageUpload()">
-          <span>Düzenle</span>
+  <div id="app">
+    <div id="cv">
+      <div class="mainDetails">
+        <div id="headshot">
+          <div class="imgEditable" @click="imageUpload()">
+            <span>Düzenle</span>
+          </div>
+          <input type="file" @change="onFileChange" ref="fileInput"/>
+          <img :src="$root.image" />
         </div>
-        <input type="file" @change="onFileChange" ref="fileInput"/>
-        <img :src="$root.image" />
-      </div>
-      <div id="name">
-        <h1 class="quickFade delayTwo">{{ $root.cv.name }}</h1>
-        <h2 class="quickFade delayThree">{{ $root.cv.job_title }}</h2>
-      </div>
-      <div id="contactDetails" class="quickFade delayFour">
-        <ul>
-          <li>e: <a href="mailto:joe@bloggs.com" target="_blank">{{ $root.cv.email }}</a></li>
-          <li>w: <a href="http://www.bloggs.com">{{ $root.cv.site }}</a></li>
-          <li>m: {{ $root.cv.phone }}</li>
-        </ul>
-      </div>
-      <div class="clear"></div>
-    </div>
-    <div id="mainArea" class="quickFade delayFive">
-      <section>
-        <article>
-          <div class="sectionTitle">
-            <h1>Kişisel Bilgilerim</h1>
+        <div id="name">
+          <div class="basicInfoEditableButton" @click="editableBasicInfo()" v-if="!editable.basicInfo">Düzenle</div>
+          <h1 v-if="!editable.basicInfo">{{ $root.cv.name }}</h1>
+          <h2 v-if="!editable.basicInfo">{{ $root.cv.job_title }}</h2>
+          <div class="basicInfoEditableContent" v-if="editable.basicInfo">
+            <h1><input type="text" v-model="$root.cv.name" required></h1>
+            <h2><input type="text" v-model="$root.cv.job_title" required></h2>
+            <button @click="saveBasicInfo()">Kaydet</button>
           </div>
-          <div class="sectionContent">
-            <p>{{ $root.cv.summary }}</p>
-          </div>
-        </article>
+        </div>
+        <div id="contactDetails">
+          <ul>
+            <li>e: {{ $root.cv.email }}</li>
+            <li>w: {{ $root.cv.site }}</li>
+            <li>m: {{ $root.cv.phone }}</li>
+          </ul>
+        </div>
         <div class="clear"></div>
-      </section>
-      <my-section :datas="$root.cv.education" keyName="education" title="Eğitim Durumu" type="row"></my-section>
-      <my-section :datas="$root.cv.word_experience" keyName="word_experience" title="İş Deneyimi" type="row"></my-section>
-      <my-section :datas="$root.cv.skills" keyName="skills" title="Yetenekler" type="list"></my-section>
+      </div>
+      <div id="mainArea">
+        <section>
+          <article>
+            <div class="sectionTitle">
+              <h1>Kişisel Bilgilerim</h1>
+            </div>
+            <div class="sectionContent">
+              <p>{{ $root.cv.summary }}</p>
+            </div>
+          </article>
+          <div class="clear"></div>
+        </section>
+        <my-section :datas="$root.cv.education" keyName="education" title="Eğitim Durumu" type="row"></my-section>
+        <my-section :datas="$root.cv.word_experience" keyName="word_experience" title="İş Deneyimi" type="row"></my-section>
+        <my-section :datas="$root.cv.skills" keyName="skills" title="Yetenekler" type="list"></my-section>
+      </div>
+
     </div>
-    <div class="appMenu">
-      <button @click="saveFile()">Tarayıcıya Kayıtla</button>
+    <div class="messageBox" v-if="$root.message.error.text" :class="$root.message.error.class">
+      <span>{{ $root.message.error.text }}</span>
+      <button class="closeMessageBox" @click="$root.closeBox()">x</button>
+    </div>
+    <div class="messageBox" v-if="$root.message.info.text" :class="$root.message.info.class">
+      <span>{{ $root.message.info.text }}</span>
+      <button class="closeMessageBox" @click="$root.closeBox()">x</button>
+    </div>
+    <div class="messageBox" v-if="$root.message.success.text" :class="$root.message.success.class">
+      <span>{{ $root.message.success.text }}</span>
+      <button class="closeMessageBox" @click="$root.closeBox()">x</button>
+    </div>
+    <div class="messageBox" v-if="$root.message.warning.text" :class="$root.message.warning.class">
+      <span>{{ $root.message.warning.text }}</span>
+      <button class="closeMessageBox" @click="$root.closeBox()">x</button>
     </div>
   </div>
 </template>
@@ -46,16 +68,13 @@
 
   import mySection from './components/section.vue';
 
-
-
   export default {
     name: 'app',
     data () {
       return {
         editable: {
           image: false,
-          name: false,
-          job_title: false,
+          basicInfo: false,
           social_infos: false,
           summary: false
         }
@@ -73,6 +92,7 @@
         if (!files.length)
           return;
         this.createImage(files[0]);
+
       },
       createImage(file) {
         var image = new Image();
@@ -81,12 +101,17 @@
 
         reader.onload = (e) => {
           vm.image = e.target.result;
+          this.$root.saveFile();
         };
         reader.readAsDataURL(file);
       },
-      saveFile() {
-        localStorage.setItem("cv", JSON.stringify(this.$root.cv));
-        localStorage.setItem("image", JSON.stringify(this.$root.image));
+      editableBasicInfo() {
+        this.editable.basicInfo = true;
+      },
+      saveBasicInfo(){
+        this.editable.basicInfo = false;
+
+        this.$root.saveFile();
       }
     },
     created() {

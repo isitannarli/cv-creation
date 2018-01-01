@@ -4,6 +4,9 @@
       <div class="editable" @click="edit(index)">
         <span>Düzenle</span>
       </div>
+      <div class="removeItem" @click="removeItem(index)">
+        <span>Sil</span>
+      </div>
       <h2>{{ info.title }} @ {{ info.name }}</h2>
       <p class="subDetails"><span>{{ info.start_date.month }} {{ info.start_date.year }}</span> - <span v-if="!info.continues">{{ info.end_date.month }} {{ info.end_date.year }}</span><span v-if="info.continues">Devam Ediyor</span></p>
       <p>{{ info.description }}.</p>
@@ -37,17 +40,20 @@
       </p>
       <p><textarea type="text" v-model="info.description" required></textarea></p>
       <button @click="save(index)">Kaydet</button>
+      <button @click="cancel(index)">İptal Et</button>
     </div>
   </div>
 </template>
 
 <script>
+
+  import vm from '../main.js'
+
   export default {
     name: 'article',
     data() {
       return {
         editable: false,
-        backup: {},
         emptyData: {
           title: "Başlık",
           name: "Ad",
@@ -86,13 +92,46 @@
 
         let sectionArray = this.$root.cv[parentKey];
         sectionArray.splice(index + 1, 0, this.emptyData);
+
+        this.$root.saveFile();
       },
-      edit(index) {
+      removeItem(index) {
+        let parentKey = this.parentKey;
+
+        let sectionArray = this.$root.cv[parentKey];
+
+        if(sectionArray.length == 1) {
+          this.$root.alert('info', 'En Az 1 İçerik Kalmak Zorundadır!');
+          return false;
+        } else {
+          sectionArray.splice(index, 1);
+          this.$root.saveFile();
+
+          this.$root.alert('success', 'İçerik Başarıyla Silindi');
+        }
+      },
+      edit(index, e) {
+
         this.editable = true;
+
       },
       save(index) {
         this.editable = false;
+
+        this.$root.saveFile();
+      },
+      cancel(index) {
+
+        let parentKey = this.parentKey;
+
+        let getCv = JSON.parse(localStorage.cv);
+
+        this.$root.cv[parentKey] = getCv[parentKey];
+
+        this.editable = false;
       }
+    },
+    created() {
     }
   }
 </script>

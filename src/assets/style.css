@@ -22,7 +22,7 @@ p {
 	color: #444;
 }
 
-#app {
+#cv {
 	width: 90%;
 	max-width: 800px;
 	background: #f3f3f3;
@@ -33,6 +33,15 @@ p {
 	padding: 25px 35px;
 	border-bottom: 2px solid #cf8a05;
 	background: #ededed;
+}
+
+#name {
+  position: relative;
+}
+
+#name:hover .basicInfoEditableButton,
+#name:focus .basicInfoEditableButton {
+  display: block;
 }
 
 #name h1 {
@@ -153,28 +162,33 @@ section:last-child {
 
 .keySkills {
 	list-style-type: none;
-	-moz-column-count:3;
-	-webkit-column-count:3;
-	column-count:3;
+	/* -moz-column-count:2;
+	-webkit-column-count:2;
+	column-count:2; */
 	margin-bottom: 20px;
 	font-size: 1em;
 	color: #444;
+  width: 100%;
+  display: table;
 }
 
-.keySkills ul li {
-	margin-bottom: 3px;
+.keySkills li {
+  width: calc(50% - 10px);
+  margin-left: 5px;
+  margin-right: 5px;
+  float: left;
+  display: inline-block;
 }
 
 @media all and (min-width: 602px) and (max-width: 800px) {
 	#headshot {
-		display: none;
+		/* display: none; */
 	}
 
-	.keySkills {
-	-moz-column-count:2;
-	-webkit-column-count:2;
-	column-count:2;
+	.keySkills li {
 	}
+
+
 }
 
 @media all and (max-width: 601px) {
@@ -185,7 +199,7 @@ section:last-child {
 	}
 
 	#headshot {
-		display: none;
+		/* display: none; */
 	}
 
 	#name, #contactDetails {
@@ -204,11 +218,9 @@ section:last-child {
 		font-size: 1.25em;
 	}
 
-	.keySkills {
-		-moz-column-count:2;
-		-webkit-column-count:2;
-		column-count:2;
-	}
+	.keySkills li {
+
+  }
 }
 
 @media all and (max-width: 480px) {
@@ -225,10 +237,12 @@ section:last-child {
 	}
 
 
-	.keySkills {
-	-moz-column-count:1;
-	-webkit-column-count:1;
-	column-count:1;
+	.keySkills li {
+    width: 100%;
+    float: none;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
 	}
 
 	#name h1 {
@@ -241,6 +255,14 @@ section:last-child {
     #cv {
         width: 100%;
     }
+
+
+    .rowItem .newRow,
+    .rowItem .editable,
+    .rowItem .removeItem {
+      display: none !important;
+    }
+
 }
 
 @-webkit-keyframes reset {
@@ -381,7 +403,9 @@ section:last-child {
 }
 
 .rowItem article:hover .editable,
-.rowItem article:focus .editable{
+.rowItem article:focus .editable,
+.rowItem article:hover .removeItem,
+.rowItem article:focus .removeItem {
   display: block;
 }
 
@@ -471,4 +495,169 @@ section:last-child {
   bottom: 0;
   left: 0;
   background-image: rgba(0,0,0,.7);
+}
+
+.removeItem {
+  width: 40px;
+  line-height: 65px;
+  text-align: center;
+  height: 100%;
+  position:  absolute;
+  right: 0;
+  top: 0;
+  margin-right: -40px;
+  background-color: red;
+  color: #fff;
+  font-size: 12px;
+  font-weight:  600;
+  text-transform: uppercase;
+  cursor: pointer;
+  z-index: 99;
+  display: none;
+}
+
+.messageBox {
+  position: absolute;
+  width: 100%;
+  height:  50px;
+  bottom:  0;
+  text-align:  center;
+  line-height:  50px;
+  color: #fff;
+  font-weight:  600;
+}
+
+.closeMessageBox {
+  position: absolute;
+  top: 11px;
+  right: 20px;
+  background-color: rgba(0,0,0,.2);
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  line-height: 30px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.messageBox.error {
+  background-color: red;
+}
+
+.messageBox.success {
+  background-color: green;
+}
+
+.messageBox.warning {
+  background-color: orange;
+}
+
+.messageBox.info {
+  background-color: blue;
+}
+
+.skillItem {
+  position: relative;
+  margin-top: 5px;
+}
+
+.skillItem:hover .skillTools,
+.skillItem:focus .skillTools,
+.skillItem:hover .skillEditableButton,
+.skillItem:focus .skillEditableButton {
+  display: block;
+}
+
+.skillTools {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: -2px;
+}
+
+.addSkill,
+.removeSkill {
+  width: 30px;
+  font-weight: 600;
+  font-size: 12px;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+
+  top: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.addSkill {
+  background-color: green;
+  right: 32px;
+}
+
+.removeSkill {
+  background-color: red;
+  right: 0;
+}
+
+.skillEditableButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.8);
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  display: none;
+}
+
+.editableSkillContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.editableSkillContent input {
+  font-size: 1em;
+  color: #444;
+  border: 1px solid #ccc;
+  width: calc(100% - 52px);
+  margin: 0;
+  float: left;
+  /* border: none; */
+}
+
+.editableSkillContent button {
+  background-color: green;
+  border: none;
+  color: #fff;
+  height: 22px;
+  padding: 0;
+  width: 50px;
+  float: left;
+  cursor: pointer;
+}
+
+.basicInfoEditableButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.8);
+  color: #fff;
+  line-height: 70px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: none;
 }
