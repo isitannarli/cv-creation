@@ -10,34 +10,33 @@
           <img :src="$root.image" />
         </div>
         <div id="name">
-          <div class="basicInfoEditableButton" @click="contentEditable('basicInfo')" v-if="!editable.basicInfo">Düzenle</div>
+          <div class="basicInfoEditableButton" @click="editableBasicInfo()" v-if="!editable.basicInfo">Düzenle</div>
           <h1 v-if="!editable.basicInfo">{{ $root.cv.name }}</h1>
           <h2 v-if="!editable.basicInfo">{{ $root.cv.job_title }}</h2>
           <div class="basicInfoEditableContent" v-if="editable.basicInfo">
             <h1><input type="text" v-model="$root.cv.name" required></h1>
             <h2><input type="text" v-model="$root.cv.job_title" required></h2>
-            <button @click="save('basicInfo')">Kaydet</button>
+            <button @click="saveBasicInfo()">Kaydet</button>
           </div>
         </div>
         <div id="contactDetails">
-          <div class="socialInfoEditableButton" @click="contentEditable('socialInfo')" v-if="!editable.socialInfo">Düzenle</div>
+          <div class="socialInfoEditableButton" @click="editable" v-if="!editable.socialInfo">Düzenle</div>
           <ul v-if="!editable.socialInfo">
             <li>e: {{ $root.cv.email }}</li>
             <li>w: {{ $root.cv.site }}</li>
-            <li>t: {{ $root.cv.phone }}</li>
+            <li>m: {{ $root.cv.phone }}</li>
           </ul>
-          <ul class="socialInfoEditableContent" v-if="editable.socialInfo">
+          <div class="socialInfoEditableContent" v-if="!editable.socialInfo">
             <li>
-              <span>e: </span><input type="text" v-model="$root.cv.email" required>
+              <input type="text" v-model="$root.cv.email" required>
             </li>
             <li>
-              <span>w: </span><input type="email" v-model="$root.cv.site" required>
+              <input type="text" v-model="$root.cv.site" required>
             </li>
             <li>
-              <span>t: </span><input type="tel" v-model="$root.cv.phone" required>
+              <input type="text" v-model="$root.cv.phone" required>
             </li>
-            <button @click="save('socialInfo')">Kaydet</button>
-          </ul>
+          </div>
         </div>
         <div class="clear"></div>
       </div>
@@ -118,12 +117,12 @@
         };
         reader.readAsDataURL(file);
       },
-      contentEditable(name) {
+      editable(name) {
 
-        this.editable[name] = true;
+        this.editable.name = true;
       },
       save(name){
-        this.editable[name] = false;
+        this.editable.name = false;
 
         this.$root.saveFile();
       }

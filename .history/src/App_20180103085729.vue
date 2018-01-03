@@ -24,20 +24,20 @@
           <ul v-if="!editable.socialInfo">
             <li>e: {{ $root.cv.email }}</li>
             <li>w: {{ $root.cv.site }}</li>
-            <li>t: {{ $root.cv.phone }}</li>
+            <li>m: {{ $root.cv.phone }}</li>
           </ul>
-          <ul class="socialInfoEditableContent" v-if="editable.socialInfo">
+          <div class="socialInfoEditableContent" v-if="editable.socialInfo">
             <li>
-              <span>e: </span><input type="text" v-model="$root.cv.email" required>
+              <input type="text" v-model="$root.cv.email" required>
             </li>
             <li>
-              <span>w: </span><input type="email" v-model="$root.cv.site" required>
+              <input type="text" v-model="$root.cv.site" required>
             </li>
             <li>
-              <span>t: </span><input type="tel" v-model="$root.cv.phone" required>
+              <input type="text" v-model="$root.cv.phone" required>
             </li>
-            <button @click="save('socialInfo')">Kaydet</button>
-          </ul>
+            <button @click="save('socialInfo')"></button>
+          </div>
         </div>
         <div class="clear"></div>
       </div>

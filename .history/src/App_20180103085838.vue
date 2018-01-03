@@ -31,10 +31,10 @@
               <span>e: </span><input type="text" v-model="$root.cv.email" required>
             </li>
             <li>
-              <span>w: </span><input type="email" v-model="$root.cv.site" required>
+              <span>w: </span><input type="text" v-model="$root.cv.site" required>
             </li>
             <li>
-              <span>t: </span><input type="tel" v-model="$root.cv.phone" required>
+              <span>t: </span><input type="text" v-model="$root.cv.phone" required>
             </li>
             <button @click="save('socialInfo')">Kaydet</button>
           </ul>

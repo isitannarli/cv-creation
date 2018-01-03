@@ -11,7 +11,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 display:block;
 }
 
-html, body {background: #e2e2e2; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
 
 .clear {clear: both;}
 
@@ -23,15 +23,15 @@ p {
 }
 
 #cv {
-	width: 100%;
-	max-width: 1140px;
+	width: 90%;
+	max-width: 800px;
 	background: #f3f3f3;
 	margin: 30px auto;
 }
 
 .mainDetails {
 	padding: 25px 35px;
-	border-bottom: 2px solid #e67e22;
+	border-bottom: 2px solid #cf8a05;
 	background: #ededed;
 }
 
@@ -120,7 +120,7 @@ p {
 }
 
 #contactDetails ul li a:hover {
-	color: #e67e22;
+	color: #cf8a05;
 }
 
 
@@ -151,7 +151,7 @@ section:last-child {
 	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
 	font-style: italic;
 	font-size: 1.5em;
-	color: #e67e22;
+	color: #cf8a05;
 }
 
 .sectionContent h2 {
@@ -438,13 +438,13 @@ section:last-child {
 .newRow .line {
   width: calc(100% - 30px);
   height:  4px;
-  background-color: #f1c40f;
+  background-color: yellow;
   box-shadow: 0 0 10px rgba(0,0,0,.4);
   float:  left;
 }
 
 .newRow .plus {
-  background-color:  #f1c40f;
+  background-color:  yellow;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -511,7 +511,7 @@ section:last-child {
   right: 0;
   top: 0;
   margin-right: -40px;
-  background-color: #e74c3c;
+  background-color: red;
   color: #fff;
   font-size: 12px;
   font-weight:  600;
@@ -549,19 +549,19 @@ section:last-child {
 }
 
 .messageBox.error {
-  background-color: #e74c3c;
+  background-color: red;
 }
 
 .messageBox.success {
-  background-color: #2ecc71;
+  background-color: green;
 }
 
 .messageBox.warning {
-  background-color: #e67e22;
+  background-color: orange;
 }
 
 .messageBox.info {
-  background-color: #3498db;
+  background-color: blue;
 }
 
 .skillItem {
@@ -599,12 +599,12 @@ section:last-child {
 }
 
 .addSkill {
-  background-color: #2ecc71;
+  background-color: green;
   right: 32px;
 }
 
 .removeSkill {
-  background-color: #e74c3c;
+  background-color: red;
   right: 0;
 }
 
@@ -635,8 +635,8 @@ section:last-child {
 }
 
 .editableSkillContent button {
-  background-color: #2ecc71;
-  border: 1px solid #27ae60;
+  background-color: green;
+  border: none;
   color: #fff;
   height: 22px;
   padding: 0;
@@ -659,62 +659,6 @@ section:last-child {
   text-transform: uppercase;
   cursor: pointer;
   display: none;
-}
-
-.basicInfoEditableContent {
-  width: 90%;
-  display: table;
-}
-
-.basicInfoEditableContent h1,
-.basicInfoEditableContent h2 {
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100% !important
-}
-
-.basicInfoEditableContent h1 input {
-
-
-  color: #444;
-  /* margin: 0; */
-  /* padding: 0 2px; */
-  display: block;
-  border: 1px solid #ccc;
-  width: 100%;
-  background-color: #ededed;
-
-  font-size: 100%;
-  font-weight: 700;
-  font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
-}
-
-.basicInfoEditableContent h2 input {
-  color: #444;
-  /* margin: 0; */
-  /* padding: 0 2px; */
-  display: block;
-  border: 1px solid #ccc;
-  width: 100%;
-  background-color: #ededed;
-
-  font-size: 100%;
-  margin-left: 2px;
-  font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
-}
-
-.basicInfoEditableContent button {
-  width: 100%;
-  height: 30px;
-  background-color: #2ecc71;
-  border: 1px solid #27ae60;
-  border-radius: 2px;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  cursor: pointer;
-  margin-top: 5px;
 }
 
 .socialInfoEditableButton {
@@ -747,28 +691,15 @@ section:last-child {
   margin: 0;
   padding: 0 2px;
   vertical-align: baseline;
+  margin-bottom: 3px;
   border: 1px solid #ccc;
-  width: calc(100% - 24px);
+  width: calc(100% - 25px);
   display: inline-block;
   background-color: #ededed;
 }
 
 
 .socialInfoEditableContent span {
-  width: 18px;
+  width: 20px;
   display: inline-block;
-}
-
-.socialInfoEditableContent button {
-  width: 100%;
-  height: 30px;
-  background-color: #2ecc71;
-  border: 1px solid #27ae60;
-  border-radius: 2px;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  cursor: pointer;
-  margin-top: 5px;
 }
