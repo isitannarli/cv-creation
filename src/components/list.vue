@@ -1,14 +1,14 @@
   <template>
   <li class="skillItem" >
     <div class="skillEditableButton" v-if="!editableSkill" @click="editable(index)">Düzenle</div>
-    <span v-if="!editableSkill">{{ $root.cv.skills[index] }}</span>
+    <span v-if="!editableSkill">{{ $root.cv[parentKey][index] }}</span>
     <div class="editableSkillContent" v-if="editableSkill">
-      <input type="text" v-model="$root.cv.skills[index]" required>
+      <input type="text" v-model="$root.cv[parentKey][index]" required>
       <button @click="save(index)">Kaydet</button>
     </div>
     <div class="skillTools" v-if="!editableSkill">
-      <button class="addSkill" @click="addSkill(index)">Ekle</button>
-      <button class="removeSkill" @click="removeSkill(index)">Sil</button>
+      <button class="addSkill" @click="add(index)">Ekle</button>
+      <button class="removeSkill" @click="remove(index)">Sil</button>
     </div>
   </li>
 </template>
@@ -16,29 +16,29 @@
 
 <script>
   export default {
-    name: 'skill',
+    name: 'list',
     data() {
       return {
-        emptyData: 'Yeni Yetenek',
+        emptyData: 'Yeni Ekle',
         editableSkill: false,
       }
     },
-    props: ['title', 'index'],
+    props: ['title', 'index', 'parentKey'],
     methods: {
-      addSkill(index) {
-        this.$root.cv.skills.splice(index + 1, 0, this.emptyData);
+      add(index) {
+        this.$root.cv[this.parentKey].splice(index + 1, 0, this.emptyData);
 
         this.$root.saveFile();
       },
-      removeSkill(index) {
-        if(this.$root.cv.skills.length == 1) {
-          this.$root.alert('info', 'En Az 1 Yetenek Kalmak Zorundadır!');
+      remove(index) {
+        if(this.$root.cv[this.parentKey].length == 1) {
+          this.$root.alert('info', 'En Az 1 İçerik Kalmak Zorundadır!');
           return false;
         } else {
-          this.$root.cv.skills.splice(index, 1);
+          this.$root.cv[this.parentKey].splice(index, 1);
           this.$root.saveFile();
 
-          this.$root.alert('info', 'Yetenek Silindi.');
+          this.$root.alert('info', 'İçerik Silindi.');
         }
       },
       editable(index) {

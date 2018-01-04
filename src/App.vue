@@ -22,19 +22,19 @@
         <div id="contactDetails">
           <div class="socialInfoEditableButton" @click="contentEditable('socialInfo')" v-if="!editable.socialInfo">Düzenle</div>
           <ul v-if="!editable.socialInfo">
-            <li>e: {{ $root.cv.email }}</li>
-            <li>w: {{ $root.cv.site }}</li>
-            <li>t: {{ $root.cv.phone }}</li>
+            <li><i class="mdi mdi-email"></i> {{ $root.cv.email }}</li>
+            <li><i class="mdi mdi-home-map-marker"></i> {{ $root.cv.address }}</li>
+            <li><i class="mdi mdi-phone"></i> {{ $root.cv.phone }}</li>
           </ul>
           <ul class="socialInfoEditableContent" v-if="editable.socialInfo">
             <li>
-              <span>e: </span><input type="text" v-model="$root.cv.email" required>
+              <span><i class="mdi mdi-email"></i> </span><input type="text" v-model="$root.cv.email" required>
             </li>
             <li>
-              <span>w: </span><input type="email" v-model="$root.cv.site" required>
+              <span><i class="mdi mdi-home-map-marker"></i> </span><input type="text" v-model="$root.cv.address" required>
             </li>
             <li>
-              <span>t: </span><input type="tel" v-model="$root.cv.phone" required>
+              <span><i class="mdi mdi-phone"></i> </span><input type="tel" v-model="$root.cv.phone" required>
             </li>
             <button @click="save('socialInfo')">Kaydet</button>
           </ul>
@@ -45,10 +45,15 @@
         <section>
           <article>
             <div class="sectionTitle">
-              <h1>Kişisel Bilgilerim</h1>
+              <h1>Özet Bilgi</h1>
             </div>
-            <div class="sectionContent">
-              <p>{{ $root.cv.summary }}</p>
+            <div class="sectionContent" id="summary">
+              <div class="summaryEditableButton" @click="contentEditable('summary')" v-if="!editable.summary">Düzenle</div>
+              <p v-if="!editable.summary">{{ $root.cv.summary }}</p>
+              <div class="summaryEditableContent" v-if="editable.summary">
+                <textarea v-model="$root.cv.summary" required></textarea>
+                <button @click="save('summary')">Kaydet</button>
+              </div>
             </div>
           </article>
           <div class="clear"></div>
@@ -56,9 +61,12 @@
         <my-section :datas="$root.cv.education" keyName="education" title="Eğitim Durumu" type="row"></my-section>
         <my-section :datas="$root.cv.word_experience" keyName="word_experience" title="İş Deneyimi" type="row"></my-section>
         <my-section :datas="$root.cv.skills" keyName="skills" title="Yetenekler" type="list"></my-section>
+        <my-section :datas="$root.cv.language" keyName="language" title="Yabancı Dil" type="list"></my-section>
+        <my-section :datas="$root.cv.referance" keyName="referance" title="Referanslar" type="list"></my-section>
       </div>
 
     </div>
+    <div class="copyright">ProKariyer.com Tarafından Hazırlanmıştır.</div>
     <div class="messageBox" v-if="$root.message.error.text" :class="$root.message.error.class">
       <span>{{ $root.message.error.text }}</span>
       <button class="closeMessageBox" @click="$root.closeBox()">x</button>
@@ -139,5 +147,9 @@
   }
 </script>
 <style lang="scss">
+
+  @import "~mdi/css/materialdesignicons.css";
+
   @import "./assets/style.css";
+  @import "./assets/print.css";
 </style>

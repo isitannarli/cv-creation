@@ -8,10 +8,15 @@ vertical-align:baseline;
 }
 
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
-display:block;
+  display:block;
 }
 
-html, body {background: #e2e2e2; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+html, body {
+  background: #e2e2e2;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 16px;
+  color: #222;
+}
 
 .clear {clear: both;}
 
@@ -31,7 +36,7 @@ p {
 
 .mainDetails {
 	padding: 25px 35px;
-	border-bottom: 2px solid #e67e22;
+	border-bottom: 2px solid #014c7d;
 	background: #ededed;
 }
 
@@ -45,16 +50,17 @@ p {
 }
 
 #name h1 {
-	font-size: 2.5em;
+	font-size: 2em;
 	font-weight: 700;
-	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
-	margin-bottom: -6px;
+  margin-top: 10px;
+	/* font-family: 'Rokkitt', Helvetica, Arial, sans-serif; */
+	/* margin-bottom: -6px; */
 }
 
 #name h2 {
-	font-size: 2em;
+	font-size: 1.5em;
 	margin-left: 2px;
-	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+	/* font-family: 'Rokkitt', Helvetica, Arial, sans-serif; */
 }
 
 #mainArea {
@@ -147,15 +153,15 @@ section:last-child {
 	width: 72.5%;
 }
 
+
+
 .sectionTitle h1 {
-	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
-	font-style: italic;
+	/* font-style: italic; */
 	font-size: 1.5em;
-	color: #e67e22;
+	color: #014c7d;
 }
 
 .sectionContent h2 {
-	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
 	font-size: 1.5em;
 	margin-bottom: -2px;
 }
@@ -164,6 +170,63 @@ section:last-child {
 	font-size: 0.8em;
 	font-style: italic;
 	margin-bottom: 3px;
+}
+
+.editable-content {
+  margin-bottom: 20px;
+}
+
+.editable-content h2 input {
+  font-size: 100%;
+  color: #444;
+  border: 1px solid #ccc;
+  background-color: #ededed;
+}
+
+.editable-content p textarea {
+  font-size: 100%;
+  font-family: inherit;
+  color: #444;
+  border: 1px solid #ccc;
+  background-color: #ededed;
+  width: 100%;
+  display: block;
+}
+
+.editable-content .subDetails {
+  margin-top: 5px;
+}
+
+.editable-content .subDetails select, input {
+  font-size: 100%;
+  font-family: inherit;
+  color: #444;
+  border: 1px solid #ccc;
+  background-color: #ededed;
+}
+
+/* .editable-content .subDetails input {
+  width: 50px;
+} */
+
+
+.editable-content button {
+  color: #fff;
+  height: 30px;
+  padding: 0;
+  width: 49%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.editable-content button {
+  background-color: #2ecc71;
+  border: 1px solid #27ae60;
+}
+
+.editable-content button:last-child {
+  background-color: #e74c3c;
+  border: 1px solid #c0392b;
 }
 
 .keySkills {
@@ -459,7 +522,7 @@ section:last-child {
 
 .editable {
   cursor: pointer;
-  width: 100%;
+  width: calc(100% - 40px);
   height: 100%;
   position: absolute;
   top: 0;
@@ -510,7 +573,7 @@ section:last-child {
   position:  absolute;
   right: 0;
   top: 0;
-  margin-right: -40px;
+  /* margin-right: -40px; */
   background-color: #e74c3c;
   color: #fff;
   font-size: 12px;
@@ -621,6 +684,7 @@ section:last-child {
   text-transform: uppercase;
   text-align: center;
   cursor: pointer;
+  line-height: 25px;
   display: none;
 }
 
@@ -686,7 +750,6 @@ section:last-child {
 
   font-size: 100%;
   font-weight: 700;
-  font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
 }
 
 .basicInfoEditableContent h2 input {
@@ -700,7 +763,6 @@ section:last-child {
 
   font-size: 100%;
   margin-left: 2px;
-  font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
 }
 
 .basicInfoEditableContent button {
@@ -771,4 +833,71 @@ section:last-child {
   text-transform: uppercase;
   cursor: pointer;
   margin-top: 5px;
+}
+
+#summary {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+#summary p {
+  margin-bottom:  0;
+}
+
+#summary:hover .summaryEditableButton,
+#summary:focus .summaryEditableButton {
+  display: block;
+}
+
+.summaryEditableButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.8);
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  line-height: 25px;
+  display: none;
+}
+
+.summaryEditableContent textarea {
+  font-family: inherit;
+  font-size: 1em;
+  line-height: 1.4em;
+  color: #444;
+  border: 1px solid #ccc;
+  width: 100%;
+  background-color: #ededed;
+  display: block;
+}
+
+.summaryEditableContent button {
+  width: 100%;
+  height: 30px;
+  display: block;
+  background-color: #2ecc71;
+  border: 1px solid #27ae60;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.copyright {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: none;
+  width: 100%;
 }

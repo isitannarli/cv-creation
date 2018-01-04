@@ -3,7 +3,7 @@
   "picture": "",
   "phone": "0543215678",
   "email": "ornek@siteadresi.com",
-  "site": "www.siteadresi.com",
+  "address": "Türkiye - İstanbul (Avr.) - Bayrampaşa",
   "job_title": "İş Unvanınız",
   "summary": "Kendiniz hakkında bir şeyler yazınız..",
   "education": [
@@ -18,7 +18,7 @@
         "month": "Eylül",
         "year": "2011"
       },
-      "continues": false,
+      "continues": "false",
       "description": "Detay Bilgisini Buraya Yazınız.."
     }
   ],
@@ -31,10 +31,10 @@
         "year": "2007"
       },
       "end_date": {
-        "month": "",
-        "year": ""
+        "month": "Ağustos",
+        "year": "2009"
       },
-      "continues": true,
+      "continues": "true",
       "description": "Detay Bilgisini Buraya Yazınız.."
     },
     {
@@ -45,10 +45,10 @@
         "year": "2007"
       },
       "end_date": {
-        "month": "",
-        "year": ""
+        "month": "Ağustos",
+        "year": "2009"
       },
-      "continues": true,
+      "continues": "true",
       "description": "Detay Bilgisini Buraya Yazınız.."
     }
   ],
@@ -56,5 +56,15 @@
     "Yeteneğiniz",
     "Yeteneğiniz",
     "Yeteneğiniz"
+  ],
+  "language": [
+    "İngilizce - Çok İyi",
+    "Almanca - Orta",
+    "Fransızca - Az"
+  ],
+  "referance": [
+    "Referansınız",
+    "Referansınız",
+    "Referansınız"
   ]
 }

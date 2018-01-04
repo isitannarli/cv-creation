@@ -8,7 +8,7 @@
         <span>Sil</span>
       </div>
       <h2>{{ info.title }} @ {{ info.name }}</h2>
-      <p class="subDetails"><span>{{ info.start_date.month }} {{ info.start_date.year }}</span> - <span v-if="!info.continues">{{ info.end_date.month }} {{ info.end_date.year }}</span><span v-if="info.continues">Devam Ediyor</span></p>
+      <p class="subDetails"><span>{{ info.start_date.month }} {{ info.start_date.year }}</span> - <span v-if="info.continues == 'false'">{{ info.end_date.month }} {{ info.end_date.year }}</span><span v-if="info.continues == 'true'">Devam Ediyor</span></p>
       <p>{{ info.description }}.</p>
     </article>
     <div class="newRow" v-if="!editable" @click="newItem(index)">
@@ -22,19 +22,24 @@
           <select v-model="info.start_date.month">
             <option v-for="item in month" v-html="item"></option>
           </select>
-          <input type="text" v-model="info.start_date.year" required>
+          <select v-model="info.start_date.year">
+            <option v-for="item in years" v-html="item"></option>
+          </select>
         </span>
-        <span> - </span>
-        <span>
+        <span v-if="info.continues == 'false'"> - </span>
+        <span v-if="info.continues == 'false'">
           <select v-model="info.end_date.month">
             <option v-for="item in month" v-html="item"></option>
           </select>
-          <input type="text" v-model="info.end_date.year" required>
+          <select v-model="info.end_date.year">
+            <option v-for="item in years" v-html="item"></option>
+          </select>
         </span>
+        <span> ----- </span>
         <span>
           <select v-model="info.continues" required>
-            <option value="Devam Ediyor">Devam Ediyor</option>
-            <option value="Bitirdim">Bitirdim</option>
+            <option value="true">Devam Ediyor</option>
+            <option value="false">Bitirdim</option>
           </select>
         </span>
       </p>
@@ -62,10 +67,10 @@
             year: "2007"
           },
           end_date: {
-            month: "",
-            year: ""
+            month: "Ağustos",
+            year: "2009"
           },
-          continues: true,
+          continues: "true",
           description: "Detay Bilgisini Buraya Yazınız.."
         },
         month: [
@@ -81,7 +86,8 @@
           "Ekim",
           "Kasım",
           "Aralık",
-        ]
+        ],
+        years: []
       }
     },
     props: ['info', 'index', 'parentKey'],
@@ -132,6 +138,16 @@
       }
     },
     created() {
+
+
+    },
+    mounted() {
+      var date = new Date();
+      var year = date.getFullYear();
+
+      for(var i = year; i >= 1920; i--) {
+        this.years.push(i);
+      }
     }
   }
 </script>

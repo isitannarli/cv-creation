@@ -8,7 +8,7 @@
     </div>
     <div class="sectionContent" v-if="type == 'list'">
       <ul class="keySkills">
-        <mySkill v-for="(title, index) in datas" :title="title" :index="index"></mySkill>
+        <myList v-for="(title, index) in datas" :title="title" :parentKey="keyName" :index="index"></myList>
       </ul>
     </div>
     <div class="clear"></div>
@@ -19,7 +19,7 @@
 
   import myArticle from './article.vue';
 
-  import mySkill from './skill.vue';
+  import myList from './list.vue';
 
   export default {
     name: 'section',
@@ -34,7 +34,7 @@
     },
     components: {
       myArticle,
-      mySkill
+      myList
     },
     created() {
     }
