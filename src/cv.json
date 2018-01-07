@@ -1,70 +1,69 @@
 {
-  "name": "Adınız Soyadınız",
+  "name": "Ercüment Üzer",
   "picture": "",
-  "phone": "0543215678",
-  "email": "ornek@siteadresi.com",
-  "address": "Türkiye - İstanbul (Avr.) - Bayrampaşa",
-  "job_title": "İş Unvanınız",
-  "summary": "Kendiniz hakkında bir şeyler yazınız..",
+  "phone": "0541 149 94 71",
+  "email": "ercumentuzer@gmail.com",
+  "address": "İstanbul - Bakırköy",
+  "job_title": "Seo ve Dijital Pazarlama Uzmanı",
+  "summary": "Bir çok firmaya part-time ve full-time olarak web tasarım, seo ve adwords desteği vermekteyim. Eğitim hayatım ve tecrübelerim doğrultusunda farklı insanlarla birlikte çalışma, bir takımda yer alma ve birlikte üretebilmeyi öğrenme fırsatım oldu. Bu nedenle takımınıza kolaylıkla adapte olacağımı düşünüyorum. Eğer uygun görürseniz bana mail adresimden ulaşabilirsiniz",
   "education": [
     {
-      "title": "Fakulte/Bölüm",
-      "name": "Okul/Üniversite Adı",
+      "title": "Bilgisayarlı Tasarım",
+      "name": "Akdeniz Üniversitesi",
       "start_date": {
         "month": "Eylül",
-        "year": "2007"
+        "year": "2008"
       },
       "end_date": {
-        "month": "Eylül",
-        "year": "2011"
+        "month": "Haziran",
+        "year": "2012"
       },
       "continues": "false",
-      "description": "Detay Bilgisini Buraya Yazınız.."
+      "description": "Bilgisayar Destekli Tasarım bölümününü tamamladım."
     }
   ],
   "word_experience": [
     {
-      "title": "İş Unvanınız",
-      "name": "Şirket Adı",
+      "title": "Dijital Pazarlama Uzmanı",
+      "name": "MedicalArt",
       "start_date": {
-        "month": "Ocak",
-        "year": "2007"
+        "month": "Aralık",
+        "year": "2016"
       },
       "end_date": {
-        "month": "Ağustos",
-        "year": "2009"
+        "month": "Ocak",
+        "year": "2018"
       },
       "continues": "true",
-      "description": "Detay Bilgisini Buraya Yazınız.."
+      "description": "Sağlık sektöründe hizmet veren firmaya ait, web sitelerin yapılması (wordpress), Html, css, php, js problemlerinin giderilmesi,Adwords reklamlarının yönetilmesi (Arama ağı ve Görüntülü), Operasyon videolarının editlenip youtube'a içerik hazırlanması, Sosyal Medya Reklamlarının Hazırlanması ve yönetilmesi, İç ve Dış seo optimizasyonu  yapılması, "
     },
     {
-      "title": "İş Unvanınız",
-      "name": "Şirket Adı",
+      "title": "SEO Uzmanı",
+      "name": "Pro Kariyer",
       "start_date": {
         "month": "Ocak",
-        "year": "2007"
+        "year": "2015"
       },
       "end_date": {
-        "month": "Ağustos",
-        "year": "2009"
+        "month": "Ocak",
+        "year": "2018"
       },
-      "continues": "true",
-      "description": "Detay Bilgisini Buraya Yazınız.."
+      "continues": "false",
+      "description": "Part-time olarak dışardan seo hizmeti verdiğim firma. İş tanımı; İç seo optimizasyonu ( site haritası hazırlanması, url yapıları, iç linklerin hazırlanması, schema.org yapısının kurulması vb. ), Dış seo çalışması olarak uygun yerlerden backlink alınması ve sosyal kanalların kullanılması. Haber niteliğinde yayınlar için fikir üretilip doğal backlinkler kazanmak. Forumlar için özel backlink çalışması. "
     }
   ],
   "skills": [
-    "Yeteneğiniz",
-    "Yeteneğiniz",
-    "Yeteneğiniz"
+    "Wordpress",
+    "Photoshop",
+    "html",
+    "css"
   ],
   "language": [
     "İngilizce - Çok İyi",
-    "Almanca - Orta",
-    "Fransızca - Az"
+    "Almanca - Orta"
   ],
   "referance": [
-    "Referansınız",
-    "Referansınız",
-    "Referansınız"
+    "A. Işıtan Narlı (Yazılımcı) - 0541 149 94 71",
+    "Ş. Hıdıroğlu - shidiroglu@gmail.com"
   ]
 }
