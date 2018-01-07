@@ -64,9 +64,9 @@
         <my-section :datas="$root.cv.language" keyName="language" title="Yabancı Dil" type="list"></my-section>
         <my-section :datas="$root.cv.referance" keyName="referance" title="Referanslar" type="list"></my-section>
       </div>
-
+      <button class="printPage" type="button" @click="print()">Özgeçmişimi Yazdır/İndir</button>
     </div>
-    <div class="copyright">ProKariyer.com Tarafından Hazırlanmıştır.</div>
+   <div class="copyright">ProKariyer.com Tarafından Hazırlanmıştır.</div>
     <div class="messageBox" v-if="$root.message.error.text" :class="$root.message.error.class">
       <span>{{ $root.message.error.text }}</span>
       <button class="closeMessageBox" @click="$root.closeBox()">x</button>
@@ -88,6 +88,14 @@
 <script>
 
   import mySection from './components/section.vue';
+
+  // import html2pdf from './assets/html2pdf.bundle.min.js';
+
+  // import jsPDF from 'jspdf/dist/jspdf.min.js';
+
+  // const doc = new jsPDF();
+
+  import "print-js/dist/print.min.js"
 
   export default {
     name: 'app',
@@ -134,10 +142,55 @@
         this.editable[name] = false;
 
         this.$root.saveFile();
+      },
+      printImg() {
+        let options = {
+          margin:       0,
+          filename:     `${this.$root.cv.name}.pdf`,
+          image:        { type: 'jpeg', quality: 1 },
+          html2canvas:  { dpi: 192, letterRendering: true },
+          jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        var element = document.getElementById('cv');
+        html2pdf(element, options);
+      },
+      print() {
+        // doc.fromHTML(document.getElementById('cv').innerHTML, 15, 15, {
+        //   'width': 170,
+        //   'elementHandlers': '#cv'
+        // });
+
+        // doc.save('sample-file.pdf');
+        //
+
+        this.$nextTick(() => {
+            this.$nextTick(() => {
+                // printJS({ printable: 'app', type: 'html', header: 'greger' })
+                window.print();
+            })
+        });
+
+        this.$nextTick(() => {
+          // window.print();
+          //
+
+
+        });
+      },
+      rerender(){
+          this.show = false
+          this.$nextTick(() => {
+              this.show = true
+              console.log('re-render start')
+              this.$nextTick(() => {
+                  console.log('re-render end')
+              })
+          })
       }
     },
     created() {
-
+      this.rerender();
     },
     mounted() {
 

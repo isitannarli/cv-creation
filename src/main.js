@@ -58,5 +58,7 @@ new Vue({
       this.message.warning.text = '';
     }
   },
-  render: h => h(App)
+  render: function(createElement) {
+    return createElement(App);
+  }
 })

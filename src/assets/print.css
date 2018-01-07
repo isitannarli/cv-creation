@@ -31,6 +31,8 @@
 
   #cv {
     /* max-width: 90%; */
+    width: 1140px !important;
+    max-width: 1140px !important;
   }
 
   .mainDetails {
@@ -89,5 +91,9 @@
 
   p {
     font-size: 14px !important;
+  }
+
+  .printPage {
+    display:  none;
   }
 }
