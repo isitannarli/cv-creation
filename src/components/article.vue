@@ -7,7 +7,7 @@
       <div class="removeItem" @click="removeItem(index)">
         <span>Sil</span>
       </div>
-      <h2>{{ info.title }} @ {{ info.name }}</h2>
+      <h2>{{ info.title }} - {{ info.name }}</h2>
       <p class="subDetails"><span>{{ info.start_date.month }} {{ info.start_date.year }}</span> - <span v-if="info.continues == 'false'">{{ info.end_date.month }} {{ info.end_date.year }}</span><span v-if="info.continues == 'true'">Devam Ediyor</span></p>
       <p>{{ info.description }}.</p>
     </article>
@@ -16,7 +16,7 @@
       <div class="plus">+</div>
     </div>
     <div class="editable-content" v-if="editable">
-      <h2><input type="text" v-model="info.title" required autofocus> @ <input type="text" v-model="info.name" required></h2>
+      <h2><input type="text" v-model="info.title" required autofocus> - <input type="text" v-model="info.name" required></h2>
       <p class="subDetails">
         <span>
           <select v-model="info.start_date.month">

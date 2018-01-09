@@ -97,3 +97,80 @@
     display:  none;
   }
 }
+
+
+#printMode {
+  font-family: helvetica, arial, sans-serif;
+  font-size: 14px;
+  margin-top:  -100px;
+}
+
+#printMode #cv {
+  /* max-width: 90%; */
+  width: 800px !important;
+  max-width: 760px !important;
+}
+
+#printMode .mainDetails {
+  padding: 10px;
+}
+
+#printMode #name {
+  text-align: left;
+  padding-top:  15px;
+}
+
+#printMode #contactDetails {
+  float: none;
+  width:  100%;
+  display:  block;
+  clear: both;
+  padding-top: 10px;
+}
+
+#printMode #contactDetails ul {
+  display: table;
+  width: 100%;
+
+}
+
+#printMode #contactDetails ul li {
+  display: inline-block;
+  width: 33.333%;
+  vertical-align: text-top;
+}
+
+#printMode #name h1 {
+  font-size: 1.5em;
+}
+
+#printMode #name h2 {
+  font-size: 1em;
+}
+
+#printMode .sectionTitle h1 {
+  font-size: 1em;
+}
+
+#printMode .sectionContent h2 {
+  font-size: 1em;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#printMode .copyright {
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: rotate(20deg);
+  font-size: 35px;
+  color: rgba(0,0,0,.1);
+}
+
+#printMode p {
+  font-size: 14px !important;
+}
+
+#printMode .printPage {
+  display:  none;
+}

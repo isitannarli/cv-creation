@@ -66,7 +66,7 @@
       </div>
       <button class="printPage" type="button" @click="print()">Özgeçmişimi Yazdır/İndir</button>
     </div>
-   <div class="copyright">ProKariyer.com Tarafından Hazırlanmıştır.</div>
+   <div class="copyright">ProKariyer.com</div>
     <div class="messageBox" v-if="$root.message.error.text" :class="$root.message.error.class">
       <span>{{ $root.message.error.text }}</span>
       <button class="closeMessageBox" @click="$root.closeBox()">x</button>
@@ -89,7 +89,7 @@
 
   import mySection from './components/section.vue';
 
-  // import html2pdf from './assets/html2pdf.bundle.min.js';
+  import html2pdf from './assets/html2pdf.bundle.min.js';
 
   // import jsPDF from 'jspdf/dist/jspdf.min.js';
 
@@ -143,7 +143,10 @@
 
         this.$root.saveFile();
       },
-      printImg() {
+      print() {
+
+        document.body.id = 'printMode';
+
         let options = {
           margin:       0,
           filename:     `${this.$root.cv.name}.pdf`,
@@ -152,45 +155,23 @@
           jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
         };
 
-        var element = document.getElementById('cv');
-        html2pdf(element, options);
-      },
-      print() {
-        // doc.fromHTML(document.getElementById('cv').innerHTML, 15, 15, {
-        //   'width': 170,
-        //   'elementHandlers': '#cv'
-        // });
+        var element = document.getElementById('app');
 
-        // doc.save('sample-file.pdf');
-        //
+        var pdf = new Promise(
+          function (resolve, reject) {
+            resolve(html2pdf(element, options));
+          }
+        );
 
-        this.$nextTick(() => {
-            this.$nextTick(() => {
-                // printJS({ printable: 'app', type: 'html', header: 'greger' })
-                window.print();
-            })
+        pdf.then(function() {
+          document.body.id = '';
+        })
+        .catch(function() {
+          document.body.id = '';
         });
-
-        this.$nextTick(() => {
-          // window.print();
-          //
-
-
-        });
-      },
-      rerender(){
-          this.show = false
-          this.$nextTick(() => {
-              this.show = true
-              console.log('re-render start')
-              this.$nextTick(() => {
-                  console.log('re-render end')
-              })
-          })
       }
     },
     created() {
-      this.rerender();
     },
     mounted() {
 
